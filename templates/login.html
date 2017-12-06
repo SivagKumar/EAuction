@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+
+
+  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+  <link href="../static/css/signup.css" rel="stylesheet">
+  <script src="../static/js/jquery-1.11.2.js"></script>
+  <script src="../static/js/signUp.js"></script>
+  <style type="text/css">
+    .bodybg
+    {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      background: #7791a3;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+    }
+    .link:hover
+    {
+      color: #fff;
+      text-decoration: none;
+    }
+    .link
+    {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    li {
+      padding: 0px 10px;
+    }
+    #overlay-1 {
+      background-color: rgba(29, 71, 102, .6);
+
+    }
+    #overlay-2 {
+      /*background-color: rgba(29, 71, 102, .6);*/
+      background-color: #3399cc;
+
+    }
+    .nav > li > a:hover, .nav > li > a:focus
+    {
+      background: none;
+    }
+    th
+    {
+      color: #ffffff;
+    }
+    td
+    {
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body class="bodybg">
+  <div class="container-fluid"  style="background:#3399cc;padding:20px;">
+    <div class="container">
+      <nav>
+        <ul class="nav pull-left" style="margin-bottom: 0px;">
+          <li role="presentation" class="active"><a class="link" href="/">Home</a></li>
+          <li role="presentation"><a class="link" href="/logout">Login</a></li>
+          <li role="presentation"><a class="link" href="/Register">Register</a></li>
+        </ul>
+      </nav>
+      <!-- <h3 class="text-muted" align="center">Auction Based System</h3> -->
+    </div>
+  </div>
+
+  <div class="container" style="height:100%">
+    <div class="container" style="min-height:100% width:80%">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span></button>
+        {{message}}
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+      {% block body %}{% endblock %}
+    </div>
+
+    <form action = "" method = post>
+      <h1 class="link">Login to sell and buy</h1>
+      <dl>
+        <dt>Username:</dt>
+
+        <dd>
+          <input type = text name = inputName
+          value = "{{request.form.username }}">
+        </dd>
+
+
+        <dt>Password:</dt>
+        <dd><input type = password name = inputPassword></dd>
+      </dl>
+      <p><input class="btn btn-lg btn-success" type = submit value = login></p>
+    </form>
+<!--
+<div class="jumbotron">
+<h1>Bucket List App</h1>
+<form class="form-signin">
+<label for="inputName" class="sr-only">Name</label>
+<input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
+<label for="inputEmail" class="sr-only">Email address</label>
+<input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+<label for="inputPassword" class="sr-only">Password</label>
+<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+
+<button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>
+</form>
+</div>
+//-->
+</div>
+<div class="container-fluid" id="overlay-2">
+  <div class="container">
+    <footer class="footer">
+      <p style="margin:0px;color:#fff"> &copy; 2017 All Rights Reserved. Cloud Computing Auction Based System Project</p>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
+
